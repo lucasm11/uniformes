@@ -11,7 +11,6 @@ class Empleados extends Migration
         Schema::create('empleados', function(Blueprint $table){
             $table->increments('id_emp');
             $table->string('nombre',40);
-            $table->string('app',40);
             $table->string('tipo',20);
             $table->rememberToken();
             $table->timestamps();
