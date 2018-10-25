@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/saludo', function () {
+    echo "hola mundo uniformes bugs";
+});
+
+Route::get('/altacliente','uniformes@altacliente');
