@@ -21,3 +21,5 @@ Route::get('/saludo', function () {
 });
 
 Route::get('/altacliente','uniformes@altacliente');
+Route::POST('/guardacliente','uniformes@guardacliente')->name('guardacliente');
+Route::get('/reporteclientes','uniformes@reporteclientes');

@@ -8,12 +8,7 @@ use App\clientes;
 
 class uniformes extends Controller
 {
-    public function areacirculo($radio)
-    {
-        $pi = 3.14;
-        $area = $pi * $radio * $radio;
-        echo "el area circulo es: ". $area;
-    }
+   
 
     public function altacliente()
     {
@@ -34,22 +29,23 @@ class uniformes extends Controller
 		
 	 					
 							
-		return $muncipios;
+		//return $muncipios;
 	   return view ("sistema.altacliente")
 	   ->with('municipios',$municipios)
 	   ->with('id_cs',$id_cs);
     }	
     public function guardacliente(Request $request)
-    {
+    { 
+		$id_cli = $request->id_cli;
 		$nombre = $request->nombre;
-        $id_cli = $request->id_cli;
         $app= $request->app;
         $apm= $request->apm;
         $telefono= $request->telefono;
         $correo= $request->correo;
         $calle= $request->calle;
-		$num_int= $request->num_int;
 		$num_ext = $request->num_ext;
+		$num_int= $request->num_int;
+	
 		
 		///NUNCA SE RECIBEN LOS ARCHIVOS
 		
@@ -60,7 +56,7 @@ class uniformes extends Controller
          'app'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'apm'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'telefono'=>'required',['regex:/^[0-9]{10}$/'],
-		 'correo'=>'required|email|unique:clients',
+		 //'correo'=>'required|email|unique:clients',
 		 'calle'=>'required',['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'num_ext'=>'required',['regex:/^[0-9]+$/'],
          'num_int'=>['regex:/^[0-9]+$/'],
@@ -84,13 +80,16 @@ class uniformes extends Controller
 		 //insert into clientes(idm,nombre,edad,sexo) values('$idm',
 		 //'$nombre')
 		    $clie = new clientes;
-			$clie->idm = $request->idm;
+			$clie->id_cli = $request->id_cli;
 			$clie->nombre = $request->nombre;
-			$clie->edad =$request->edad;
-			$clie->sexo= $request->sexo;
-			$clie->cp=$request->cp;
-			$clie->beca=$request->beca;
-			$clie->idc=$request->idc;
+			$clie->app =$request->app;
+			$clie->apm= $request->apm;
+			$clie->telefono=$request->telefono;
+			$clie->correo=$request->correo;
+			$clie->calle=$request->calle;
+			$clie->num_ext=$request->num_ext;
+			$clie->num_int=$request->num_int;
+			$clie->id_mun=$request->id_mun;
 			$clie->archivo = $img2;
 			$clie->save();
 		$proceso = "Alta Cliente";	
@@ -99,5 +98,12 @@ class uniformes extends Controller
 		->with('proceso',$proceso)
 		->with('mensaje',$mensaje);
 	}		
+	public function reporteclientes()
+	{
+	$clientes = clientes::orderBy('nombre','asc')->get();
+	return view ('sistema.reporteclientes')
+	->with('clientes',$clientes);
+	
+	}
 	
 }
