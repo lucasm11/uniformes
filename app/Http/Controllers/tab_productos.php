@@ -34,10 +34,10 @@ class tab_productos extends Controller
     }	
     public function guardaproductos(Request $request)
     { 
-		$id_cli = $request->id_prod;
+		$id_prod = $request->id_prod;
 		$escuela = $request->escuela;
-        $talla= $request->tipo;
-        $tipo= $request->talla;
+        $talla= $request->talla;
+        $tipo= $request->tipo;
         $disponible= $request->disponible;
         $ubicacion= $request->ubicacion;
 		$precio = $request->precio;
