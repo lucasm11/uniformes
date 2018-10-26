@@ -46,13 +46,12 @@ class tab_escuelas extends Controller
 	     'id_esc'=>'required|numeric',
          'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
          'telefono'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'calle'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'numero'=>['regex:/^[0-9]{10}$/'],
+         'calle'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'numero'=>['regex:/^[0-9]+$/'],
 		 //'correo'=>'required|email|unique:clients',
-		 'municipio'=>'required',['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'estado'=>'required',['regex:/^[0-9]+$/'],
-         'activo'=>['regex:/^[0-9]+$/'],
-
+		 'municipio'=>['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'estado'=>['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+     
 	     ]);
 
       
@@ -60,7 +59,7 @@ class tab_escuelas extends Controller
 		 //insert into clientes(idm,nombre,edad,sexo) values('$idm',
 		 //'$nombre')
 		    $esc = new escuelas;
-			$esc->id_cli = $request->id_esc;
+			$esc->id_esc = $request->id_esc;
 			$esc->nombre = $request->nombre;
 			$esc->telefono =$request->telefono;
 			$esc->calle= $request->calle;

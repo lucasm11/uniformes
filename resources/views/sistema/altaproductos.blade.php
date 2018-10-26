@@ -1,7 +1,7 @@
 <html>
 <body>
 <h1> Alta de Productos </h1>
-<br>fg7
+<br>
 <form action = '{{route('guardaproductos')}}' method = 'POST' enctype='multipart/form-data'>
 {{csrf_field()}}
 <br>
@@ -9,13 +9,14 @@
 <i> {{ $errors->first('id_prod') }} </i> 
 @endif	
 <br>
-Clave del Producto <input type = 'text' name = 'id_prod' value="{{$id_cs}}" readonly ='readonly'>
+Clave del Producto <input type = 'text' name = 'id_prod' value="{{$id_ps}}" readonly ='readonly'>
 <br>
-@if($errors->first('escuela')) 
-<i> {{ $errors->first('escuela') }} </i> 
-@endif	
 <br>
-Escuela<input type  ='text' name = 'escuela' value="{{old('escuela')}}">
+Seleccione Escuela<select name = 'id_esc'>
+            @foreach($escuelas as $esc)
+			<option value = '{{$esc->id_esc}}'>{{$esc->nombre}}</option>
+			@endforeach
+                  </select>
 <br>
 @if($errors->first('tipo')) 
 <i> {{ $errors->first('tipo') }} </i> 
@@ -29,11 +30,10 @@ Tipo<input type  ='text' name = 'tipo' value="{{old('tipo')}}">
 <br>
 Talla<input type  ='text' name = 'talla' value="{{old('talla')}}">
 <br>
-@if($errors->first('disponible')) 
-<i> {{ $errors->first('disponible') }} </i> 
-@endif	
 <br>
-Disponible<input type = 'text' name = 'disponible' value="{{old('disponible')}}" >
+Disponible <input type = 'radio' name = 'activo' value = 'si' checked >Si
+<input type = 'radio' name = 'activo' value = 'no'>No
+
 <br>
 @if($errors->first('ubicacion')) 
 <i> {{ $errors->first('ubicacion') }} </i> 
@@ -47,11 +47,6 @@ Ubicacion<input type = 'text' name = 'ubicacion' value="{{old('ubicacion')}}" >
 <br>
 Precio<input type = 'text' name = 'precio' value="{{old('precio')}}" >
 <br>
-@if($errors->first('archivo')) 
-<i> {{ $errors->first('archivo') }} </i> 
-@endif	
-<br>
-Seleccione foto<input type= 'file' name = 'archivo'>
 <br>
 <input type = 'submit' value = 'Guardar'>
 <br>

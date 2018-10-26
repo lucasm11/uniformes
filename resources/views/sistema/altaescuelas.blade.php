@@ -47,8 +47,10 @@ Estado<input type  ='text' name = 'estado' value="{{old('estado')}}">
 <br>
 
 Activo <input type = 'radio' name = 'activo' value = 'si' checked >Si
-<input type = 'radio' name = 'sexo' value = 'no'>No
+<input type = 'radio' name = 'activo' value = 'no'>No
 <br>
+<br>
+
 
 <input type = 'submit' value = 'Guardar'>
 <br>
