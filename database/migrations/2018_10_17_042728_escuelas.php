@@ -11,7 +11,13 @@ class Escuelas extends Migration
     {
         Schema::create('escuelas', function(Blueprint $table){
             $table->increments('id_esc');
-            $table->string('nombre',40);
+            $table->string('nombre',50);
+            $table->string('telefono',10);
+            $table->string('calle',50);
+            $table->integer('numero');
+            $table->string('municipio',50);
+            $table->string('estado',50);
+            $table->string('activo',2);
             $table->rememberToken();
             $table->timestamps();
 
