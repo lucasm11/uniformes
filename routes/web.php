@@ -24,7 +24,6 @@ Route::get('/altacliente','uniformes@altacliente');
 Route::POST('/guardacliente','uniformes@guardacliente')->name('guardacliente');
 Route::get('/reporteclientes','uniformes@reporteclientes');
 
-
-Route::get('/altaescuela','tab_escuelas@altaescuelas');
-Route::POST('/guardaescuelas','tab_escuelas@guardaescuelas')->name('guardaescuelas');
-Route::get('/reporteescuelas','tab_escuelas@reporteescuelas');
+Route::get('/altaproductos','uniformes@altaproductos');
+Route::POST('/guardaproductos','uniformes@guardaproductos')->name('guardaproductos');
+Route::get('/reporteproductos','uniformes@reporteproductos');
