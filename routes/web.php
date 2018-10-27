@@ -27,3 +27,7 @@ Route::get('/reporteclientes','uniformes@reporteclientes');
 Route::get('/altaproductos','uniformes@altaproductos');
 Route::POST('/guardaproductos','uniformes@guardaproductos')->name('guardaproductos');
 Route::get('/reporteproductos','uniformes@reporteproductos');
+
+Route::get('/altaempleado','tap_empleados@altaempleado');
+Route::POST('/guardaempleado','tap_empleados@guardaempleado')->name('guardaempleado');
+Route::get('/reporteempleado','tap_empleados@reporteempleado');
