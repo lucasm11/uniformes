@@ -44,13 +44,13 @@ class tab_escuelas extends Controller
 		
 		$this->validate($request,[
 	     'id_esc'=>'required|numeric',
-         'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'telefono'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'calle'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'numero'=>['regex:/^[0-9]+$/'],
-		 //'correo'=>'required|email|unique:clients',
-		 'municipio'=>['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'estado'=>['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'telefono'=>'required|regex:/^[0-9]{10}$/',
+         'calle'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'numero'=>'required|regex:/^[0-9]+$/',
+		 'correo'=>'required|email',
+		 'municipio'=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'estado'=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
      
 	     ]);
 

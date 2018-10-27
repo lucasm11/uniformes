@@ -37,25 +37,24 @@ class tab_productos extends Controller
     public function guardaproductos(Request $request)
     { 
 		$id_prod = $request->id_prod;
-		$id_esc = $request->id_esc;
+		$tipo= $request->tipo;
         $talla= $request->talla;
-        $tipo= $request->tipo;
         $disponible= $request->disponible;
         $ubicacion= $request->ubicacion;
 		$precio = $request->precio;
+		$id_esc = $request->id_esc;
 	
 		
 		///NUNCA SE RECIBEN LOS ARCHIVOS
 		
 		
 		$this->validate($request,[
-	     'id_prod'=>'required|numeric',
-         'escuela'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'talla'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'tipo'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'disponible'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-		 'ubicacion'=>'required',['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'precio'=>'required',['regex:/^[0-9]+$/'],
+			'id_prod'=>'required|numeric',
+			'tipo'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+			'talla'=>'required|regex:/^[0-9]+$/',
+			'ubicacion'=>'required|regex:/^[A-Z,a-z, ,0-9]+$/',
+			'precio'=>'required|regex:/^[0-9]+[.][0-9]{2}$/',
+			
 		 
 	     ]);
 
@@ -65,12 +64,12 @@ class tab_productos extends Controller
 		 //'$nombre')
 		    $produ = new productos;
 			$produ->id_prod = $request->id_prod;
-			$produ->id_esc = $request->id_esc;
+			$produ->tipo = $request->tipo;
 			$produ->talla = $request->talla;
-			$produ->tipo= $request->tipo;
 			$produ->disponible = $request->disponible;
 			$produ->ubicacion = $request->ubicacion;
 			$produ->precio = $request->precio;
+			$produ->id_esc = $request->id_esc;
 			$produ->save();
 		$proceso = "Alta Productos";	
 	    $mensaje="Registro guardado correctamente";

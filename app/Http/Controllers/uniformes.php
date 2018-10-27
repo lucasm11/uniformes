@@ -52,14 +52,14 @@ class uniformes extends Controller
 		
 		$this->validate($request,[
 	     'id_cli'=>'required|numeric',
-         'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'app'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'apm'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'telefono'=>['regex:/^[0-9]{10}$/'],
-		 //'correo'=>'required|email|unique:clients',
-		 'calle'=>'required',['regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'num_ext'=>'required',['regex:/^[0-9]+$/'],
-         'num_int'=>['regex:/^[0-9]+$/'],
+         'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'app'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'apm'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'telefono'=>'required|regex:/^[0-9]{10}$/',
+		 'correo'=>'required|email',
+		 'calle'=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'num_ext'=>'required|regex:/^[0-9]+$/',
+         'num_int'=>'regex:/^[0-9]+$/',
 		 'archivo'=>'image|mimes:jpg,jpeg,png,gif'
 	     ]);
 
