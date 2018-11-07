@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => public_path('clientes'),
+            'root' => public_path('archivos'),
         ],
 
         'public' => [
@@ -54,16 +54,7 @@ return [
             'visibility' => 'public',
         ],
 
-        'local' => [
-            'driver' => 'local',
-            'root' => public_path('empleados'),
-        ],
-
-        'public' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public'),
-            'visibility' => 'public',
-        ],
+      
       
 
         's3' => [

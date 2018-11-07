@@ -7,7 +7,7 @@
   <h3><span class="badge badge-secondary">Registro de Clientes</span></h3>
   </div>
 <div class="card-body">
-  <form action = '{{route('guardacliente')}}' method = 'POST' enctype='multipart/form-data'>
+  <form action = "{{route('editacliente')}}" method = 'POST' enctype='multipart/form-data'>
 {{csrf_field()}}
 
 
@@ -17,7 +17,7 @@
       @if($errors->first('id_cli')) 
 <i> {{ $errors->first('id_cli') }} </i> 
 @endif
-      <input type="text" class="form-control" id="inputId_cli"  name='id_cli' value="{{$id_cs}}" readonly ='readonly' >
+      <input type="text" class="form-control" id="inputId_cli"  name='id_cli' value="{{$cliente->id_cli}}" readonly ='readonly' >
     </div>
 
     <div class="form-group col-md-6">
@@ -25,7 +25,7 @@
       @if($errors->first('nombre')) 
 <i> {{ $errors->first('nombre') }} </i> 
 @endif
-      <input type="text" class="form-control" id="inputnombre" name = 'nombre' value="{{old('nombre')}}" placeholder="Nombre(s)">
+      <input type="text" class="form-control" id="inputnombre" name = 'nombre' value="{{$cliente->id_nombre}" placeholder="Nombre(s)">
     </div>
     
     <div class="form-group col-md-6">
@@ -33,7 +33,7 @@
       @if($errors->first('app')) 
 <i> {{ $errors->first('app') }} </i> 
 @endif
-      <input type="app" class="form-control" id="inputapp" name = 'app' value="{{old('app')}}" placeholder="Apellido Paterno">
+      <input type="app" class="form-control" id="inputapp" name = 'app' value="{{$cliente->app}}" placeholder="Apellido Paterno">
     </div>
     
     <div class="form-group col-md-6">
@@ -41,7 +41,7 @@
       @if($errors->first('apm')) 
 <i> {{ $errors->first('apm') }} </i> 
 @endif
-      <input type="text" class="form-control" id="inputapm" name = 'apm' value="{{old('apm')}}" placeholder="Apellido Materno">
+      <input type="text" class="form-control" id="inputapm" name = 'apm' value="{{$cliente->apm}}" placeholder="Apellido Materno">
     </div>
   </div>
 
@@ -51,7 +51,7 @@
     @if($errors->first('telefono')) 
 <i> {{ $errors->first('telefono') }} </i> 
 @endif
-    <input type="text" class="form-control" id="inputtelefono" name = 'telefono' value="{{old('telefono')}}"  placeholder="10 digitos">
+    <input type="text" class="form-control" id="inputtelefono" name = 'telefono' value="{{$cliente->telefono}}" placeholder="10 digitos">
   </div>
   
   <div class="form-group">
@@ -59,7 +59,7 @@
     @if($errors->first('correo')) 
 <i> {{ $errors->first('correo') }} </i> 
 @endif
-    <input type="text" class="form-control" id="correo" name = 'correo' value="{{old('correo')}}"  placeholder="Ejemplo@ejemplo">
+    <input type="text" class="form-control" id="correo" name = 'correo' value="{{$cliente->correo}}" placeholder="Ejemplo@ejemplo">
   </div>
   
   <div class="form-group">
@@ -67,7 +67,7 @@
     @if($errors->first('calle')) 
 <i> {{ $errors->first('calle') }} </i> 
 @endif
-    <input type="text" class="form-control" id="inputcalle" name = 'calle' value="{{old('calle')}}" placeholder="Calle">
+    <input type="text" class="form-control" id="inputcalle" name = 'calle' value="{{$cliente->calle}}" placeholder="Calle">
   </div>
 
 
@@ -77,7 +77,7 @@
       @if($errors->first('num_ext')) 
 <i> {{ $errors->first('num_ext') }} </i> 
 @endif
-      <input type="text" class="form-control" id="inputnum_ext"  name = 'num_ext' value="{{old('num_ext')}}" placeholder="Numero Ext.">
+      <input type="text" class="form-control" id="inputnum_ext"  name = 'num_ext' value="{{$cliente->num_ext}}" placeholder="Numero Ext.">
     </div>
     
     <div class="form-group col-md-6">
@@ -85,7 +85,7 @@
       @if($errors->first('num_int')) 
 <i> {{ $errors->first('num_int') }} </i> 
 @endif
-      <input type="text" class="form-control" id="inputnum_int" name = 'num_int' value="{{old('num_int')}}" placeholder="Numero Int.">
+      <input type="text" class="form-control" id="inputnum_int" name = 'num_int' value="{{$cliente->num_int}}" placeholder="Numero Int.">
     </div>
   
   <div class="form-group col-md-6">
