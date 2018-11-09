@@ -48,7 +48,6 @@ class tab_escuelas extends Controller
          'telefono'=>'required|regex:/^[0-9]{10}$/',
          'calle'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'numero'=>'required|regex:/^[0-9]+$/',
-		 'correo'=>'required|email',
 		 'municipio'=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
          'estado'=>'required|regex:/^[A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
      

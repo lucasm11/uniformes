@@ -48,11 +48,11 @@ class tab_empleados extends Controller
 		
 		$this->validate($request,[
 	     'id_emp'=>'required|numeric',
-         'nombre'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'app'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-         'apm'=>'required',['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
-	
-		'tipo'=>['regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/'],
+         'nombre'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'app'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+         'apm'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
+		 'edad'=>'required|integer|min:18|max:60',
+		'tipo'=>'required|regex:/^[A-Z][A-Z,a-z, ,ñ,á,é,í,ó,ú]+$/',
 		 'archivo'=>'image|mimes:jpg,jpeg,png,gif'
 	     ]);
 
@@ -91,7 +91,7 @@ class tab_empleados extends Controller
 	}		
 	public function reporteempleado()
 	{
-	$empleados = empleados::orderBy('nombre','asc')->get();
+	$empleados = empleados::orderBy('id_emp','asc')->get();
 	return view ('sistema.reporteempleado')
 	->with('empleados',$empleados);
 	

@@ -100,7 +100,7 @@ class uniformes extends Controller
 	}		
 	public function reporteclientes()
 	{
-	$clientes = clientes::orderBy('nombre','asc')->get();
+	$clientes = clientes::orderBy('id_cli','asc')->get();
 	return view ('sistema.reporteclientes')
 	->with('clientes',$clientes);
 	
