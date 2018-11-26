@@ -27,6 +27,10 @@
         <td>{{$cli->nombre}}</td><td>{{$cli->telefono}}</td>
 <td>{{$cli->correo}}</td>
 <td>
+@if ($ma-Zdeleted_at =="")
+<a href="{{URL::action('uniformes@eliminam',['idm'=>$ma->idm])}}"> 
+Eliminar  
+</a>
 </td>
 @endforeach
 

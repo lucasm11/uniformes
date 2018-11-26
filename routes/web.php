@@ -23,6 +23,7 @@ Route::get('/saludo', function () {
 Route::get('/altacliente','uniformes@altacliente');
 Route::POST('/guardacliente','uniformes@guardacliente')->name('guardacliente');
 Route::get('/reporteclientes','uniformes@reporteclientes');
+Route::get('/eliminam/{idm}','uniformes@eliminam')->name('eliminam');
 
 Route::get('/altaproductos','tab_productos@altaproductos');
 Route::POST('/guardaproductos','tab_productos@guardaproductos')->name('guardaproductos');
